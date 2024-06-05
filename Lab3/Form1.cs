@@ -22,7 +22,7 @@ namespace Lab3
         {
             comboBoxAlgorithm.Items.Add("AES");
             comboBoxAlgorithm.Items.Add("DES");
-            comboBoxAlgorithm.SelectedIndex = 0; // Default to AES
+            comboBoxAlgorithm.SelectedIndex = 0;
         }
 
         private void buttonGenerateKeys_Click(object sender, EventArgs e)
