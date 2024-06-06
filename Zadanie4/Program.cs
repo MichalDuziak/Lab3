@@ -3,18 +3,18 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Lab3_Task4
+namespace Zadanie4
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Ustaw ścieżki do plików
+            // Ścieżki do plików
             string inputFilePath = "input.txt";
             string encryptedFilePath = "encrypted.bin";
             string decryptedFilePath = "decrypted.txt";
 
-            // Stwórz klucze RSA
+            // Stworzenie klucza RSA
             RSACryptoServiceProvider myRSA = new RSACryptoServiceProvider(2048);
             AesManaged myAES = new AesManaged();
 
@@ -22,7 +22,7 @@ namespace Lab3_Task4
             myAES.GenerateKey();
             byte[] RSAciphertext = myRSA.Encrypt(myAES.Key, true);
 
-            // Zapisz klucz RSA do pliku
+            // Zapisanie kluca RSA do pliku
             File.WriteAllBytes("RSA_key.bin", myRSA.ExportCspBlob(true));
 
             // Szyfrowanie pliku
@@ -42,7 +42,7 @@ namespace Lab3_Task4
             byte[] signature = SignData(myRSA, message);
             Console.WriteLine("Message signed.");
 
-            // Weryfikacja podpisu
+
             bool verified = VerifyData(myRSA, message, signature);
             Console.WriteLine($"Signature verified: {verified}");
         }
